@@ -63,7 +63,7 @@ public class SupplierDaoImpl implements SupplierDao
 		return s;
 		
 	}
-	//================delete supplier=======================
+	
 	public void deleteSupplier(int sid)
 	{
 		Session session=sessionFactory.openSession();
@@ -72,21 +72,13 @@ public class SupplierDaoImpl implements SupplierDao
 		session.delete(supplier);
 		session.getTransaction().commit();
 	}
-	//==============update supplier==========================
+	
 	public void update(Supplier s)
 	{
 		Session session=sessionFactory.openSession();
-		try
-		{
-			session.beginTransaction();
-			session.update(s);
-			session.getTransaction().commit();
-		}
-		catch(HibernateException ex)
-		{
-			ex.printStackTrace();
-			session.getTransaction().rollback();
-		}
+		session.beginTransaction();
+		session.update(s);
+		session.getTransaction().commit();
 		
 	}
 	

@@ -18,27 +18,27 @@ public class User implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id											//it create email column as primary key
-	//@Email(message="Enter valid Email")			//@Email,@NotEmpty=hibernate validation
-	//@NotEmpty(message="Enter the Email")
+	@Id											
+	@Email(message="Enter valid Email")			
+	@NotEmpty(message="Enter the Email")
 	private String email;
 	
-	//@NotEmpty(message="Enter the Name")						//@Column,@NotNull,@Size,@PAtteren=validation-api
+	@NotEmpty(message="Enter the Name")						
 	private String name;
 	
-	//@NotNull(message="Password is Null")
+	@NotNull(message="Password is Null")
 	private String password;
 	
 	
 	private String role;
 	
-	//@NotNull(message="Address is Null")
+	@NotNull(message="Address is Null")
 	private String address;
 	
 	
-	//@Pattern(regexp="[\\d]{10}",message="Please enter 10 digits")			//regexp=regular expression is an object that describes a pattern of characters.
-	//@NotNull
-	//@Size(min=8,max=10,message="Enter Correct Phone no.")
+	@Pattern(regexp="[\\d]{10}",message="Please enter 10 digits")			
+	@NotNull
+	@Size(min=8,max=10,message="Enter Correct Phone no.")
 	private String phone;
 	
 	private boolean enabled;

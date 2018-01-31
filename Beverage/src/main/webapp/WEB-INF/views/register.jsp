@@ -51,35 +51,35 @@ function f1()
 	<br>
 							
 	<div class="form-group">							
-	<!--<form:errors path="name"/><br>-->
+	<form:errors path="name"/><br>
 	<label>Name</label>
 	<br>
 	<form:input path="name" id="name"  class="form-control" placeholder="Enter Name"/>						
 	</div>
 							
     <div class="form-group">
-	<!--<form:errors path="password" cssClass="err"/><br>-->
+	<form:errors path="password" cssClass="err"/><br>
 	<label>Password</label>
 	<br>
 	<form:input path="password" type="password" id="pass" placeholder="Enter Password Here.." class="form-control"/>
 	</div>
 							
 	<div class="form-group">
-	<!--<form:errors path="address" cssClass="err"/><br>-->
+	<form:errors path="address" cssClass="err"/><br>
 	<label>Address</label>
 	<br>
 	<form:input path="address" placeholder="Enter Address Here.." class="form-control"/>
 	</div>
 							
 	<div class="form-group">
-	<!--<form:errors path="email" cssClass="err"/><br>-->
+	<form:errors path="email" cssClass="err"/><br>
 	<label>Email</label>
 	<br>
 	<form:input path="email" placeholder="Enter Email Here.." class="form-control"/>
 	</div>
 							
 	<div class="form-group">
-	<!--<form:errors path="phone" cssClass="err"/><br>-->
+	<form:errors path="phone" cssClass="err"/><br>
 	<label>Phone NO.</label>
 	<br>
 	<form:input path="phone" placeholder="Enter Mobile no. Here.." class="form-control"/>

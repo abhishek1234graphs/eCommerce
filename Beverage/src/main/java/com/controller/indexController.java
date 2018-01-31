@@ -41,28 +41,16 @@ public class indexController
 
 	
 	@RequestMapping("/")			
-	public String index(Model m)
+	public String index()
 	{
-	//	m.addAttribute("catList",categoryDaoImpl.retrieve());
 		return "index";
 	}
 	@RequestMapping("/index")
-	public String home(Model m)
+	public String home()
 	{
-		//m.addAttribute("catList",categoryDaoImpl.retrieve());
 		return "index";
 	}
 		
-	
-	/*//===================after click on login (it go to login.jsp)=======================
-	@RequestMapping("/goToLogin")
-	public ModelAndView goToLogin(Model m)
-	{
-	//	m.addAttribute("catList",categoryDaoImpl.retrieve());
-		ModelAndView mav=new ModelAndView();
-		mav.setViewName("login");
-		return mav;
-	}*/
 	
 	@RequestMapping(value= "/goToRegister",method= RequestMethod.GET)
 	public ModelAndView showRegister()
@@ -99,7 +87,7 @@ public class indexController
 	public ModelAndView getCatTable(@RequestParam("cid") int cid)
 	{
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("productList", productDaoImpl.getProdCatById(cid));
+		mav.addObject("prodList", productDaoImpl.getProdCatById(cid));
 		mav.setViewName("productCatList");
 		return mav;
 	}
@@ -109,4 +97,43 @@ public class indexController
 	{
 		m.addAttribute("catList",categoryDaoImpl.retrieve());
 	}
+	
+	@RequestMapping("/goToLogin")
+	public String goToLogin()
+	{
+		return "login";
+	}
+	
+	@RequestMapping("/userLogged")
+	public String userLogged()
+	{
+		return "redirect:/index";
+	}
+	
+	@RequestMapping("/error")
+	public String underError()
+	{
+		return "error";
+	}
+	
+	@RequestMapping("/reLogged")
+	public String reLogged()
+	{
+		return "redirect:/goToLogin";
+	}
+	
+	
+	
+	
+	
+	
+	
+	/*@RequestMapping("/goToLogin")
+	public ModelAndView goToLogin(Model m)
+	{
+	//	m.addAttribute("catList",categoryDaoImpl.retrieve());
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("login");
+		return mav;
+	}*/
 }

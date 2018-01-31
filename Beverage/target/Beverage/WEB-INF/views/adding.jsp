@@ -67,7 +67,7 @@
 
 
 <div class="tab-pane fade" id=tab3>
-<form action="<c:url value="/admin/saveProduct"/>" method="post" class="form-signin" enctype="multipart/form-data"/>
+<form action="<c:url value="/admin/saveProduct"/>" method="post" class="form-signin" enctype="multipart/form-data"/> 
 <span id="reauth-email" class="reauth-email"></span>
 
 <h4 class="input-title">Product Name</h4>
@@ -110,7 +110,7 @@
 <div class="fileinput fileinput-new" data-provides="fileinput">
 <tr>
 <td>Product Image</td>
-<td><input class="form-control" type="file" name="file" accept="resources/*"></td>
+<td><input class="form-control" type="file" name="file" accept="resources/*"></td><!-- to get browse & upload -->
 </tr>
 </div>
 </tr><br><br>

@@ -1,2 +1,8 @@
+com\Beveragebackend\UserTestCases.class
 com\focusbackend\AppTest.class
-com\focusbackend\UserTestCases.class
+com\focusbackend\SupplierTestCases.class
+com\Beveragebackend\AppTest.class
+com\focusbackend\ProductTestCases.class
+com\focusbackend\CategoryTestCases.class
+com\Beveragebackend\SupplierTestCases.class
+com\focusbackend\UserTestCase.class

@@ -65,14 +65,14 @@ public class ProductDaoImpl implements ProductDao
 		
 	}
 	
-	
+	@Override
 	public List<Product> getProdCatById(int cid) {
 		Session session=sessionFactory.openSession();
 		List<Product> prod=null;
 		try
 		{
 		session.beginTransaction();
-		prod=session.createQuery("from Product where cid="+cid).list();
+		prod=session.createQuery("from Product where cid=" +cid).list();
 		session.getTransaction().commit();
 		}
 		catch(Exception e)

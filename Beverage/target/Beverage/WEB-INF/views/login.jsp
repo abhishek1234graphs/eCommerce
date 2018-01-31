@@ -28,18 +28,20 @@
 <%@include file="header.jsp" %>
 <h2 style="text-align: center;"><b>Login!!</b></h2>
 <div class="container">
-<form action="${pageContext.request.contextPath}/login" class="form-signin" metod="post">
+<form action="${pageContext.request.contextPath}/login" class="form-signin" method="post">
 <h3><lable>Email:</lable></h3>
 <input type="text" name="username" class="login-box" required>
 
 <h3><lable>Password</lable></h3>
 <input type="password" name="password" class="login-box" required>
 
-<button class="btn btn-lg btn-primary" type="submit">Login</button>
-<button class="btn btn-lg btn-primary" type="reset">Cancel</button>
+<button class="btn btn-primary" type="submit">Login</button>
+<button class="btn btn-warning" type="reset">Cancel</button>
 
 </form>
 </div>
+
+<br><br><br><br><br><br><br><br><br><br>
 <div>
 <%@include file= "footer.jsp" %>
 </div>	

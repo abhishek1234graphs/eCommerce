@@ -15,41 +15,45 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.DaoImpl.CartDaoImpl;
 import com.DaoImpl.CategoryDaoImpl;
+import com.DaoImpl.OrdersDaoImpl;
 import com.DaoImpl.ProductDaoImpl;
 import com.DaoImpl.SupplierDaoImpl;
 import com.DaoImpl.UserDaoImpl;
+import com.Model.Cart;
 import com.Model.Category;
+import com.Model.Orders;
 import com.Model.Product;
 import com.Model.Supplier;
 import com.Model.User;
 
 
-@Configuration				//Used to configure hibernate properties
+@Configuration				
 @ComponentScan("com.*")			 
 								
-@EnableTransactionManagement	//enabling Springâ€™s annotation-driven transaction management capability
+@EnableTransactionManagement	
 public class hiberConfig{
 
 @Autowired						
 								
-@Bean(name="dataSource")	//"dataSource"=bean name
+@Bean(name="dataSource")	
 public DataSource getH2DataSource()
 {
 System.out.println("Data Source Method");
-DriverManagerDataSource dataSource = new DriverManagerDataSource();		//spring-jdbc
-dataSource.setDriverClassName("org.h2.Driver");			//driver class
-dataSource.setUrl("jdbc:h2:tcp://localhost/~/BeverageProj");	//JDBC URL
-dataSource.setUsername("sa");							//username
-dataSource.setPassword("");								//password
+DriverManagerDataSource dataSource = new DriverManagerDataSource();		
+dataSource.setDriverClassName("org.h2.Driver");			
+dataSource.setUrl("jdbc:h2:tcp://localhost/~/BeveragesProj");	
+dataSource.setUsername("sa");							
+dataSource.setPassword("");								
 
 System.out.println("Data Source Created");
-System.out.println("************************Database h2 is connected******************************");
+System.out.println("Database h2 is connected");
 return dataSource;
 }
 private Properties getHibernateProperties() 
 {
-System.out.println("************************Hibernate Properties******************************");
+System.out.println("Hibernate Properties");
 Properties properties = new Properties();
 properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 properties.put("hibernate.hbm2ddl.auto", "update");	
@@ -66,7 +70,8 @@ sessionBuilder.addAnnotatedClass(User.class);
 sessionBuilder.addAnnotatedClass(Category.class); 
 sessionBuilder.addAnnotatedClass(Product.class); 
 sessionBuilder.addAnnotatedClass(Supplier.class); 
-
+sessionBuilder.addAnnotatedClass(Cart.class);
+sessionBuilder.addAnnotatedClass(Orders.class);
 
 return sessionBuilder.buildSessionFactory();
 }
@@ -93,17 +98,25 @@ public ProductDaoImpl getProductDAO(SessionFactory sessionFactory)
 return new ProductDaoImpl(sessionFactory);
 }
 
+
 @Autowired
-@Bean(name="SupplierDaoImpl")
-public SupplierDaoImpl getSupplierDAO(SessionFactory sessionFactory)
+@Bean(name="CartDaoImpl")
+public CartDaoImpl getCartDao(SessionFactory sessionFactory)
 {
-return new SupplierDaoImpl(sessionFactory);
+return new CartDaoImpl(sessionFactory);
+}
+
+@Autowired
+@Bean(name="OrdersDaoImpl")
+public OrdersDaoImpl getOrdersDao(SessionFactory sessionFactory)
+{
+return new OrdersDaoImpl(sessionFactory);
 }
 
 
 
 @Autowired
-@Bean(name = "transactionManager")			//spring-orm
+@Bean(name = "transactionManager")			
 public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) 
 {
 System.out.println("Transaction.....");

@@ -1,2 +1,3 @@
 com\controller\indexController.class
 com\controller\adminController.class
+com\controller\CartController.class

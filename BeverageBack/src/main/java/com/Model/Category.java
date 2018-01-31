@@ -1,6 +1,7 @@
 package com.Model;
 
 import java.io.Serializable;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
 @Table (name="Category")
 public class Category implements Serializable
